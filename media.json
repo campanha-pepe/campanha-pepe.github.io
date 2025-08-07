@@ -1,0 +1,26 @@
+[
+  {
+    "type": "image",
+    "src": "/media/pepe-dormindo.webp",
+    "thumb": "/media/thumbs/pepe-dormindo-thumb.webp",
+    "description": "Tirando uma soneca"
+  },
+  {
+    "type": "image",
+    "src": "/media/pepe-mantinha.webp",
+    "thumb": "/media/thumbs/pepe-mantinha-thumb.webp",
+    "description": "Mantinha preferida do Pepe"
+  },
+  {
+    "type": "image",
+    "src": "/media/pepe-ursinho.webp",
+    "thumb": "/media/thumbs/pepe-ursinho-thumb.webp",
+    "description": "O cachorrinho do cachorrinho"
+  },
+  {
+    "type": "image",
+    "src": "/media/pepe-internacao.webp",
+    "thumb": "/media/thumbs/pepe-internacao-thumb.webp",
+    "description": "Força menino! Logo você estará de volta para casa!"
+  }
+]

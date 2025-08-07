@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campanha de arrecadação para o Pepe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/1aa25ca308.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Galindo&display=swap" rel="stylesheet">
+    <style>
+        h1 {
+            color: #FFF;
+        }
+        p, li {
+            color: rgba(109, 114, 115, 1);
+        }
+        p a {
+            color: rgba(66, 107, 131, 1);
+        }
+        .bg-pepe {
+            background-color: rgba(131, 169, 131, 1);
+            background-image: url('images/10205054.jpg');
+            background-repeat: no-repeat;
+            background-size: auto;
+            background-attachment: fixed;
+        }
+        .btn-blue {
+            background-color: rgba(66, 107, 131, 1);
+        }
+        .btn-blue:hover {
+            background-color: rgba(50, 80, 100, 1);
+        }
+        .btn-gray {
+            background-color: rgba(109, 114, 115, 1);
+        }
+        .btn-gray:hover {
+            background-color: rgba(80, 85, 86, 1);
+        }
+        .galindo-regular {
+            font-family: "Galindo", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+        .timeline-item {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+        }
+        .timeline-item::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: rgba(66, 107, 131, 1);
+            font-size: 1.2em;
+            line-height: 1;
+            top: 2px;
+        }
+    </style>
+</head>
+<body class="bg-pepe text-gray-800">
+    <div class="container mx-auto p-4 md:p-8">
+        <header class="text-center my-6 p-4 rounded-xl">
+            <h1 class="text-4xl md:text-5xl font-bold flex items-center justify-center galindo-regular">
+                <span>🐾 Campanha do Pepe 🐾</span>
+            </h1>
+        </header>
+
+        <!-- Seção de Texto Sobre a Campanha -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 galindo-regular" style="color: rgba(66, 107, 131, 1);"><i class="fa-solid fa-circle-info"></i> Sobre a Campanha</h2>
+            <div class="flex flex-col md:flex-row gap-4 items-center md:items-start">
+                <div class="w-full md:w-1/3 relative h-auto rounded-md max-w-sm mx-auto">
+                    <img src="media/pepe-dormindo-resized.webp" class="rounded-md max-w-full h-auto shadow-lg shadow-gray-300" alt="Foto do Pepe dormindo" onerror="this.onerror=null; this.src='https://placehold.co/400x400/e3f2fd/1e88e5?text=Foto+do+Pepe';">
+                </div>
+                <div class="w-full md:w-2/3 md:order-first">
+                    <p class="mb-4">
+                        A algum tempo atrás acompanhamos o resgate de uma ninhada de seis cachorrinhos por uma ONG no Instagram e foi amor à primeira vista entre nós e o Pepe,
+                        um dos filhotes. Porém, pouco tempo depois dos primeiros dias em nossa casa, com muita brincadeira e mimos, percebemos que, entre outras coisas, ele
+                        começou a ficar mais quieto e não brincar tanto quanto antes. Após levá-lo ao veterinário, Pepe foi diagnosticado com
+                        <a href="https://pt.wikipedia.org/wiki/Hepatozoon_canis" target="_blank">Hepatozoon Canis</a>, uma doença parasitária, e em um segundo exame, o
+                        <a href="https://www.google.com/search?q=snap+4dx" target="_blank">4DX</a> vimos que ele positivou para outras quatro (dirofilariose, erliquiose,
+                        doença de Lyme e anaplasmose). Todas com o mesmo vetor de transmissão: carrapatos.
+                    </p>
+                    <p class="mb-4">
+                        Iniciamos imediatamente o tratamento, que inclui medicamentos e suplementação, porém em alguns dias o caso dele evoluiu para a internação e acompanhamento 
+                        constante.
+                    </p>
+                    <p>
+                        Estamos custeando tudo e vamos continuar fazendo isso, já que esses cuidados são imprescindíveis, porém essa situação é algo que foge totalmente de qualquer
+                        planejamento e que não cogitamos deixar de dar continuidade, então resolvemos abrir uma campanha para quem puder e quiser ajudar a ver o Pepe saudável e
+                        forte novamente.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Total Arrecadado -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 galindo-regular" style="color: rgba(66, 107, 131, 1);">
+                <i class="fa-solid fa-coins"></i> <span>Total Arrecadado</span>
+            </h2>
+            
+            <div class="text-center mb-6">
+                <p class="text-5xl font-bold mb-2" id="raisedAmount" style="color: rgba(131, 169, 131, 1);">R$ 0,00</p>
+                <p class="text-gray-600">Valor arrecadado até o momento</p>
+            </div>
+            
+            <!-- Botões de doação -->
+            <div class="flex flex-col sm:flex-row gap-4 mb-4">
+                <button id="pixButton" class="flex-1 px-6 py-3 rounded-lg text-white font-bold transition-transform transform hover:scale-105 bg-blue-600 shadow-md flex items-center justify-center gap-2" style="background-color: rgba(66, 107, 131, 1);">
+                    <span><i class="fa-brands fa-pix"></i></span> Ajudar com Pix
+                </button>
+                <a href="#" target="_blank" class="flex-1 px-6 py-3 rounded-lg text-white font-bold text-center transition-transform transform hover:scale-105 bg-gray-600 shadow-md flex items-center justify-center gap-2" style="background-color: rgba(109, 114, 115, 1);">
+                    <span><i class="fa-solid fa-credit-card"></i></span> Ajudar com Cartão
+                </a>
+            </div>
+            
+            <!-- Link de comprovantes -->
+            <div class="text-center">
+                <a href="#" target="_blank" class="block text-gray-600 hover:underline font-medium" style="color: rgba(109, 114, 115, 1);">
+                    Ver comprovantes de gastos e fotos
+                </a>
+            </div>
+        </section>
+
+        <!-- Seções Linha do Tempo e Momentos do Pepe em duas colunas -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+            <!-- Seção de Linha do Tempo -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 galindo-regular" style="color: rgba(66, 107, 131, 1);">
+                    <i class="fa-solid fa-calendar-days"></i> Linha do Tempo
+                </h2>
+                <ul class="space-y-2 text-gray-700">
+                    <li class="timeline-item">
+                        <span class="font-bold">18/07/2025:</span> Adoção do Pepe!
+                    </li>
+                    <li class="timeline-item">
+                        <span class="font-bold">22/07/2025:</span> Coleta do exame de sangue. Presença de Hepatozoon Canis (resultado saiu somente dia 24/07).
+                        Iniciamos suplementação e probióticos para fortalecer.
+                    </li>
+                    <li class="timeline-item">
+                        <span class="font-bold">24/07/2025:</span> Resultado do exame 4DX Plus, positivo para Anaplasma, Borrelia, Diofilaria e  Er. Lichia.
+                        Início do tratamento. Aplicação de Imidocarb (Imizol) sub cutâneo. Início do tratamento com Doxiciclina e Milbemax C.
+                    </li>
+                    <li class="timeline-item">
+                        <span class="font-bold">30/07/2025:</span> Internação.
+                    </li>
+                    <li class="timeline-item">
+                        <span class="font-bold">04/08/2025:</span> Pepe está mais animado e parece apresentar melhora. O exame para verificar Cinomose (que havia
+                        suspeita, devido aos sintomas) deu negativo. Ainda não está se alimentando por conta própria, mas está acordado, interagindo e explorando
+                        o ambiente.
+                    </li>
+                </ul>
+            </section>
+            
+            <!-- Seção de Fotos e Vídeos -->
+            <section class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2 galindo-regular" style="color: rgba(66, 107, 131, 1);">
+                    <i class="fa-solid fa-image"></i> <span>Momentos do Pepe</span>
+                </h2>
+                
+                <!-- Galeria de Fotos -->
+                <div id="mediaGallery" class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6">
+                    <div class="text-center text-gray-500 col-span-2 md:col-span-3">
+                        Carregando galeria...
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Modal do Pix -->
+        <div id="pixModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden">
+            <div class="bg-white rounded-lg p-6 max-w-sm w-full relative">
+                <button id="closePixModal" class="absolute top-2 right-2 text-gray-500 hover:text-gray-800 text-xl font-bold">&times;</button>
+                <h3 class="text-2xl font-bold text-center mb-4 galindo-regular" style="color: rgba(66, 107, 131, 1);">Ajudar com Pix</h3>
+                <p class="text-center text-gray-600 mb-4 text-sm">Escaneie o QR Code ou copie a chave Pix</p>
+                <div class="flex flex-col items-center">
+                    <img src="/images/pix-campanha-pepe.png" alt="Pix da Campanha" class="w-48 h-48 mb-4 border border-gray-300 rounded-lg">
+                    <p class="mb-2"><span class="font-bold">Em nome de:</span> Magno Ferreira Gaspar</p>
+                    <p class="font-bold mb-2">Chave Pix:</p>
+                    <div class="flex items-center space-x-2 bg-gray-100 rounded-lg w-full">
+                        <input 
+                            type="text" 
+                            id="pixKey" 
+                            value="00020126750014br.gov.bcb.pix01369b142aa3-69d2-46fa-9bb9-77b9874530ff0213Campanha Pepe5204000053039865802BR5921MAGNO FERREIRA GASPAR6012PRAIA GRANDE62580520SAN2025080618575448850300017br.gov.bcb.brcode01051.0.063044412"
+                            readonly
+                            class="flex-1 bg-transparent p-2 text-sm font-mono text-gray-700 border-none outline-none cursor-pointer select-all"
+                            title="Clique para selecionar toda a chave PIX"
+                        >
+                        <button id="copyPixKey" class="p-2 text-gray-500 hover:text-blue-600 transition flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v1a2 2 0 01-2 2h-1M12 12v4m0 0a2 2 0 100 4m0-4h4m-4 0H8"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <span id="copyMessage" class="mt-2 text-sm opacity-0 transition-opacity duration-300" style="color: rgba(131, 169, 131, 1);">Copiado!</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Modal da Galeria (Popover) -->
+        <div id="mediaModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 hidden z-50">
+            <div class="bg-white rounded-lg p-4 md:p-6 w-full max-w-4xl max-h-[90vh] relative overflow-hidden">
+                <button id="closeMediaModal" class="absolute top-2 right-2 z-10 bg-white bg-opacity-80 rounded-full w-8 h-8 flex items-center justify-center text-gray-500 hover:text-gray-800 text-xl font-bold">&times;</button>
+                <div class="flex flex-col items-center h-full">
+                    <div id="mediaContainer" class="w-full flex-1 mb-4 rounded-lg overflow-hidden flex items-center justify-center">
+                    </div>
+                    <p id="mediaDescription" class="text-center text-gray-700 text-sm md:text-base"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center my-8">
+            <p class="text-2xl font-bold galindo-regular text-white">Obrigado por ajudar!</p>
+        </div>
+    </div>
+
+    <script>
+        async function fetchCampaignData() {
+            try {
+                const response = await fetch('data.json');
+                if (!response.ok) {
+                    throw new Error(`Erro ao carregar dados: ${response.statusText}`);
+                }
+                const data = await response.json();
+                
+                const campaignData = Array.isArray(data) ? data[0] : data;
+                updateUI(campaignData);
+            } catch (error) {
+                console.error("Erro ao buscar os dados da campanha:", error);
+            }
+        }
+        
+        async function fetchMediaData() {
+            const mediaGallery = document.getElementById('mediaGallery');
+            try {
+                const response = await fetch('media.json');
+                if (!response.ok) {
+                    throw new Error(`Erro ao carregar galeria: ${response.statusText}`);
+                }
+                const media = await response.json();
+                renderMediaGallery(media);
+            } catch (error) {
+                console.error("Erro ao buscar os dados da galeria:", error);
+                mediaGallery.innerHTML = `<div class="text-center text-red-500 col-span-2 md:col-span-3">
+                    Não foi possível carregar a galeria.
+                </div>`;
+            }
+        }
+
+        function updateUI(data) {
+            const raisedAmountEl = document.getElementById('raisedAmount');
+            
+            raisedAmountEl.textContent = `R$ ${data.raisedAmount.toFixed(2).replace('.', ',')}`;
+        }
+        
+        function renderMediaGallery(mediaItems) {
+            const mediaGallery = document.getElementById('mediaGallery');
+            mediaGallery.innerHTML = '';
+            
+            mediaItems.forEach((item, index) => {
+                const mediaElement = document.createElement('div');
+                mediaElement.className = 'aspect-square rounded-lg overflow-hidden shadow-md cursor-pointer transition-transform transform hover:scale-105 bg-gray-200';
+                mediaElement.setAttribute('data-index', index);
+                
+                if (item.type === 'image') {
+                    const thumbSrc = item.thumb || item.src;
+                    mediaElement.innerHTML = `<img src="${thumbSrc}" alt="${item.description}" class="w-full h-full object-cover" loading="lazy">`;
+                } else if (item.type === 'video') {
+                    const thumbSrc = item.thumb || item.src;
+                    mediaElement.innerHTML = `
+                        <div class="relative w-full h-full">
+                            <video class="w-full h-full object-cover" preload="none" poster="${thumbSrc}">
+                                <source src="${item.src}" type="video/mp4">
+                                Seu navegador não suporta vídeos.
+                            </video>
+                            <div class="absolute inset-0 flex items-center justify-center bg-gray-900 bg-opacity-50 text-white text-3xl">
+                                ▶️
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                mediaGallery.appendChild(mediaElement);
+                
+                mediaElement.addEventListener('click', () => {
+                    openMediaModal(item);
+                });
+            });
+        }
+
+        const mediaModal = document.getElementById('mediaModal');
+        const mediaContainer = document.getElementById('mediaContainer');
+        const mediaDescription = document.getElementById('mediaDescription');
+        const closeMediaModalButton = document.getElementById('closeMediaModal');
+
+        function openMediaModal(item) {
+            mediaContainer.innerHTML = '';
+            
+            if (item.type === 'image') {
+                const img = document.createElement('img');
+                img.src = item.src;
+                img.alt = item.description;
+                img.className = 'max-w-full max-h-full object-contain';
+                img.style.maxHeight = 'calc(90vh - 120px)';
+                mediaContainer.appendChild(img);
+            } else if (item.type === 'video') {
+                const video = document.createElement('video');
+                video.src = item.src;
+                video.controls = true;
+                video.autoplay = true;
+                video.className = 'max-w-full max-h-full object-contain';
+                video.style.maxHeight = 'calc(90vh - 120px)';
+                mediaContainer.appendChild(video);
+            }
+            
+            mediaDescription.textContent = item.description;
+            mediaModal.classList.remove('hidden');
+        }
+
+        closeMediaModalButton.addEventListener('click', () => {
+            const videoElement = mediaContainer.querySelector('video');
+            if (videoElement) {
+                videoElement.pause();
+                videoElement.currentTime = 0;
+            }
+            mediaModal.classList.add('hidden');
+        });
+
+        mediaModal.addEventListener('click', (event) => {
+            if (event.target === mediaModal) {
+                 const videoElement = mediaContainer.querySelector('video');
+                if (videoElement) {
+                    videoElement.pause();
+                    videoElement.currentTime = 0;
+                }
+                mediaModal.classList.add('hidden');
+            }
+        });
+
+        const pixModal = document.getElementById('pixModal');
+        const pixButton = document.getElementById('pixButton');
+        const closePixModalButton = document.getElementById('closePixModal');
+        const copyPixKeyButton = document.getElementById('copyPixKey');
+        const pixKeyInput = document.getElementById('pixKey');
+        const copyMessage = document.getElementById('copyMessage');
+
+        pixButton.addEventListener('click', () => {
+            pixModal.classList.remove('hidden');
+        });
+
+        closePixModalButton.addEventListener('click', () => {
+            pixModal.classList.add('hidden');
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === pixModal) {
+                pixModal.classList.add('hidden');
+            }
+        });
+        
+        // Função para mostrar mensagem de copiado
+        function showCopyMessage() {
+            copyMessage.classList.remove('opacity-0');
+            copyMessage.classList.add('opacity-100');
+            setTimeout(() => {
+                copyMessage.classList.remove('opacity-100');
+                copyMessage.classList.add('opacity-0');
+            }, 2000);
+        }
+
+        // Função para copiar usando API moderna com fallback
+        async function copyToClipboard(text) {
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    // API moderna do clipboard
+                    await navigator.clipboard.writeText(text);
+                    return true;
+                } else {
+                    // Fallback para navegadores mais antigos
+                    const textarea = document.createElement('textarea');
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    textarea.setSelectionRange(0, 99999); // Para mobile
+                    const successful = document.execCommand('copy');
+                    document.body.removeChild(textarea);
+                    return successful;
+                }
+            } catch (err) {
+                console.error('Falha ao copiar:', err);
+                return false;
+            }
+        }
+
+        // Event listener para selecionar tudo quando clicar no input
+        pixKeyInput.addEventListener('click', () => {
+            pixKeyInput.select();
+            pixKeyInput.setSelectionRange(0, pixKeyInput.value.length);
+        });
+
+        // Event listener para o botão de copiar
+        copyPixKeyButton.addEventListener('click', async () => {
+            const success = await copyToClipboard(pixKeyInput.value);
+            if (success) {
+                showCopyMessage();
+                // Seleciona o texto do input para feedback visual
+                pixKeyInput.select();
+            }
+        });
+
+        window.onload = function() {
+            fetchCampaignData();
+            fetchMediaData();
+        };
+    </script>
+</body>
+</html>
